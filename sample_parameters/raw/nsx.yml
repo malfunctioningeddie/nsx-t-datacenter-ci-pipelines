@@ -2,6 +2,8 @@ enable_ansible_debug: false # set value to true for verbose output from ansible
 
 # format: "http://<jumphost_ip>:40001"
 nsx_image_webserver: "http://192.168.110.11:40001"
+#ova_file_name: "nsx-unified-appliance-2.2.0.0.0.8680778.ova" #Uncomment this if downloaded file manually and placed under /home/concourse
+#ovftool_file_name: "VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle"   #Uncomment this if downloaded file manually and placed under /home/concourse
 
 # vCenter to deploy the NSX manager
 vcenter_ip: 192.168.110.22
@@ -95,3 +97,18 @@ esx_root_password: "ca$hc0w"
 esx_hostname_prefix: "esx-host"
 
 esx_available_vmnic: "vmnic1" # comma separated physical NICs, applies to both cluster installation or ESXi installation
+
+nsx_t_t1router_logical_switches_spec: |
+  t1_routers:
+  # Add additional T1 Routers or collapse switches into same T1 Router as needed
+  - name: T1-Router-PKS-Infra
+    switches:
+    - name: PKS-Infra
+      logical_switch_gw: 192.168.50.1 # Last octet should be 1 rather than 0
+      subnet_mask: 24
+  - name: T1Router-PKS-Services
+    switches:
+    - name: PKS-Services
+      logical_switch_gw: 192.168.60.1 # Last octet should be 1 rather than 0
+      subnet_mask: 24
+
