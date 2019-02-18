@@ -82,11 +82,6 @@ nsx_t_gen_params: &nsx-t-gen-params
 
   nsx_t_t1router_logical_switches_spec_int: ((nsx_t_t1router_logical_switches_spec))
   nsx_t_ha_switching_profile_spec_int: ((nsx_t_ha_switching_profile_spec))
-  nsx_t_container_ip_block_spec_int: ((nsx_t_container_ip_block_spec))
-  nsx_t_external_ip_pool_spec_int: ((nsx_t_external_ip_pool_spec))
-  nsx_t_nat_rules_spec_int: ((nsx_t_nat_rules_spec))
-  nsx_t_csr_request_spec_int: ((nsx_t_csr_request_spec))
-  nsx_t_lbr_spec_int: ((nsx_t_lbr_spec))
 
 groups:
 
@@ -120,7 +115,7 @@ resources:
 - name: nsx-t-gen-pipeline
   type: git
   source:
-    uri: https://github.com/vmware/nsx-t-datacenter-ci-pipelines.git
+    uri: https://github.com/malfunctioningeddie/nsx-t-datacenter-ci-pipelines.git
     params:
       disable_git_lfs: true
     branch: ((nsx_t_pipeline_branch))
